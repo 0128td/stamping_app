@@ -1,0 +1,14 @@
+<div class="stamp-edit-container">
+
+    <%=link_to "戻る","/index" %>
+
+    <div class="stamp-edit-form">
+      <h2>時刻修正</h2>
+      <%=form_tag("/stamp/#{@stamp.id}/update_finish")do %>
+      終業時刻　<input type="time" name="finish" value="<%=@finish %>"><br>
+      <input id="submit-btn" type="submit" value="更新">
+
+      <%end%>
+    </div>
+
+</div>

@@ -1,0 +1,45 @@
+<div class="user-form-container">
+
+  <% if @administrator_user %>
+    <a href="/user/index">ユーザ情報一覧へ戻る</a>
+  <%else%>
+    <a href="/top">トップへ戻る</a>
+  <%end%>
+
+  <h2>ユーザ情報編集</h2>
+
+  <div class="error-form" style="color: red;">
+  <% @user.errors.full_messages.each do |message| %>
+    <span><%= message %></span>
+  <% end %>
+  </div>
+
+  <div class="user-from">
+  <%= form_tag("/user/#{@user.id}/update") do %>
+    <% if @administrator_user %>
+      <p>おなまえ(必須)</p>
+      <input class="input-form" type="text" name="name" value="<%=@user.name%>">
+      <p>メールアドレス(必須)</p>
+      <input class="input-form" type="email" name="email" value="<%=@user.email%>">
+      <p>パスワード(必須)４文字以上</p>
+      <input class="input-form" type="password" name="password" value="">
+      <div class="user-edit">
+      <input class="edit-btn" type="submit" value="ユーザ情報編集"><br>
+      </div>
+    <%else%>
+      <p>おなまえ　※変更できません！</p>
+      <input class="input-form" type="text" name="name" value="<%=@user.name%>" readonly>
+      <p>メールアドレス(必須)</p>
+      <input class="input-form" type="email" name="email" value="<%=@user.email%>">
+      <p>パスワード(必須)４文字以上</p>
+      <input class="input-form" type="password" name="password" value="">
+      <div class="user-edit">
+        <input class="edit-btn" type="submit" value="ユーザ情報編集"><br>
+      </div>
+    <%end%>
+
+    <%end%>
+
+  </div>
+
+</div>

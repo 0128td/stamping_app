@@ -1,0 +1,542 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@charaset #utf-8";
+
+/* 共通部分 */
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 1.7;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul, li {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  margin: 0;
+  text-decoration: none;
+  color: #2d3133;
+  font-size: 14px;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+
+input {
+  background-color: transparent;
+  outline-width: 0;
+}
+
+table{
+  margin: 1% 0;
+  width: 100%;
+  border: 0;
+  font-size: 14px;
+  background: #c2edee;
+
+}
+
+th{
+  background: #4470f6;
+  color: white;
+
+
+}
+
+td{
+  background: #eee;
+  text-align: center;
+  width: 30px;
+
+}
+
+.container {
+  width:100%;
+  margin: 0 auto;
+
+}
+
+.header {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.header-logo {
+  width: auto;
+  cursor: pointer;
+  cursor: hand;
+
+}
+
+.header-center {
+  width: 30%;
+
+}
+
+.header-center a{
+  color: blue;
+  font-weight: bold;
+  text-decoration:underline;
+
+}
+
+.header-center a:hover{
+  color: red;
+
+}
+
+
+.header-right {
+  display: flex;
+  justify-content: flex-end;
+  width: 40%;
+
+}
+
+.header-right a{
+  padding: 1%;
+  height: 100%;
+  width: 50%;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  cursor: hand;
+
+}
+
+
+.flash {
+  color: white;
+  background: rgb(251, 170, 88, 0.8);
+  text-align: center;
+  position: absolute;
+  padding: 10px, 0px;
+  top: 0px;
+  z-index: 10;
+  width: 100%;
+  font-size: 20px;
+}
+
+/* 共通部分終わり */
+/* top画面 */
+
+.top-message{
+  text-align: center;
+  color: white;
+  width: 100%;
+  height: 100vh;
+  background-image: url(top_image.jpg);
+  background-size: cover;
+}
+
+/* top画面終わり */
+/* 打刻画面 */
+
+.index-container{
+  width: 100%;
+  height: 100vh;
+  background-image: url(index_image.jpg);
+  background-color: rgba(255,255,255,0.7);
+  background-blend-mode:lighten;
+  background-size: cover;
+
+}
+
+.stamp-set{
+  margin-left: 1%;
+  margin-right: 1%;
+
+}
+
+.stamp-memo{
+  display: flex;
+  margin-left: 1%;
+  margin-top: 1%;
+
+}
+
+.stamp-memo textarea{
+  background-color: white;
+  border: groove;
+  padding: 5px;
+
+}
+
+.stamp-form{
+  display: flex;
+
+}
+
+.set-form{
+  width: 25%;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-decoration: none;
+  color: #FFF;
+
+}
+
+.submit-btn {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #1760a0;/*ボタン色*/
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+  width: 100%;
+  margin: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  cursor: hand;
+
+}
+
+.submit-btn:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(1px);/*下に動く*/
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
+  border-bottom: none;
+
+}
+
+.stamp-index{
+  margin-top: 2%;
+  margin-left: 1%;
+  margin-right: 1%;
+
+}
+
+.stamp-index a{
+  text-decoration:underline;
+
+}
+
+.stamp-index a:hover{
+  color: red;
+
+}
+
+
+.stamp-edit-container{
+  width: 100%;
+  height: 100vh;
+  background-image: url(stamp_edit_image.jpg);
+  background-color: rgba(255,255,255,0.7);
+  background-blend-mode:lighten;
+  background-size: cover;
+  text-align: center;
+
+}
+
+.stamp-edit-container a{
+  text-decoration:underline;
+
+}
+
+.stamp-edit-container a:hover{
+  color: red;
+
+}
+
+.stamp-edit-form {
+  margin: 1%;
+
+}
+
+.stamp-edit-form input{
+  margin: 1%;
+  background-color: white;
+
+
+}
+
+.select {
+	appearance: none;
+	padding: 7px 30px 7px 10px;
+	font-size: 93%;
+	line-height: 1.1em;
+	border-radius: 5px;
+	border: none;
+	background-image: url(icon_arrow.png);
+	background-repeat: no-repeat;
+	background-size: 12px 10px;
+	background-position: right 10px center;
+	background-color: white;
+}
+
+.mysearch-container{
+  width: 100%;
+  height: 100vh;
+  background-image: url(search_image.jpg);
+  background-color: rgba(255,255,255,0.7);
+  background-blend-mode:lighten;
+  background-size: cover;
+
+}
+
+/* 打刻画面終わり */
+/* 集計画面 */
+
+.aggregate-container{
+  width: 100%;
+  height: 100vh;
+  border-top: solid 2px blue;
+  background-color: #eaf6fd;
+
+}
+
+.aggregate-header{
+  margin: 1%;
+
+}
+
+.aggregate-header a{
+  text-decoration:underline;
+  margin: 1%;
+}
+
+.aggregate-header a:hover{
+  color: red;
+}
+
+.aggregate-input{
+  background-color: white;
+  padding: 3px 0px 3px 0px;
+  margin: 1%;
+
+}
+
+.aggregate-table{
+  margin: 2%;
+
+}
+
+input.btn{
+  display: inline-block;
+  padding: 5px 10px 0px 10px;
+  text-decoration: none;
+  background: #1760a0;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  cursor: hand;
+
+}
+
+input.btn:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(1px);/*下に動く*/
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
+  border-bottom: none;
+
+}
+
+button.btn{
+  display: inline-block;
+  padding: 5px 10px 5px 10px;
+  margin-left: 5px;
+  text-decoration: none;
+  background: #888888;/*ボタン色*/
+  color: #FFF;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  cursor: hand;
+
+}
+
+
+/* 集計画面おわり */
+/* ユーザ画面 */
+
+.user-index-container{
+  width: 100%;
+  height: 100vh;
+  border-top: solid 2px blue;
+
+}
+
+.user-index-container a{
+  text-decoration:underline;
+  margin: 1%;
+}
+
+.user-index-container a:hover{
+  color: red;
+}
+
+.user-table{
+  margin: 1%;
+}
+
+.user-form-container{
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  border-top: solid 2px blue;
+
+}
+
+.user-form-container a{
+  text-decoration:underline;
+  margin: 1%;
+}
+
+.user-form-container a:hover{
+  color: red;
+}
+
+.user-form{
+  margin: 1%;
+
+}
+
+.input-form{
+  background-color: #dddddd;
+  width:40%;
+  padding: 5px;
+
+}
+
+.user-edit{
+  margin-top: 2%;
+
+}
+
+input.edit-btn {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #1760a0;/*ボタン色*/
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+  color: #ffffff;
+  width: 30%;
+  margin: 2%;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  cursor: hand;
+
+}
+
+input.edit-btn:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(1px);/*下に動く*/
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
+  border-bottom: none;
+
+}
+
+
+/* ユーザ画面終わり */
+/* モーダル部分 */
+
+.js-login-modal-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(255,255,255, 0.6);
+  z-index: 100;
+
+}
+
+.js-login-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #dbedf0;
+  padding: 20px;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  text-align: center;
+
+}
+
+.js-login-modal p{
+  color: red;
+  
+}
+
+
+#js-login-close-modal {
+  color: white;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.login-form-control{
+  margin: 10px;
+  padding: 10px;
+  width: 70%;
+  background-color: white;
+
+}
+
+#submit-btn {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #1760a0;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+  width: 30%;
+  margin: 20px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  cursor: hand;
+
+}
+
+#submit-btn:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(1px);/*下に動く*/
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
+  border-bottom: none;
+
+}
+
+/* モーダル部分終わり */

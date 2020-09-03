@@ -1,0 +1,92 @@
+<div class="index-container">
+  <div class="stamp-set">
+    <h2>本日の打刻です！</h2>
+    <h3>現在の日時</h3>
+    <%=@datetime.year %>年<%=@datetime.month %>月<%=@datetime.day %>日
+    <%=@datetime.hour %>時<%=@datetime.min %>分<br>
+
+    <div class="stamp-form">
+      <%= form_tag("/stamp/create_start",class: "set-form") do %>
+      <input class="submit-btn" type="submit" value="始業">
+    <%end%>
+
+    <%= form_tag("/stamp/create_am_finish",class: "set-form") do %>
+    <input class="submit-btn" type="submit" value="昼休憩開始">
+  <%end%>
+
+  <%= form_tag("/stamp/create_pm_start",class: "set-form") do %>
+  <input class="submit-btn" type="submit" value="業務再開">
+<%end%>
+
+<%= form_tag("/stamp/create_finish",class: "set-form") do %>
+<input class="submit-btn" type="submit" value="終業"><br>
+<%end%>
+</div>
+
+<div class="stamp-memo">
+<%= form_tag("/stamp/create_memo") do %>
+<textarea name="memo" rows="2" cols="40" placeholder="メモ：面談により19時まで残業　など"><%=@stamp.memo%></textarea><br>
+<%=submit_tag("登録", class: "btn") %>
+<%end%>
+</div>
+</div>
+
+<div class="stamp-index">
+<h3><%=@current_user.name%>　さん</h3>
+<h3>あなたの登録状況</h3>
+<%=form_tag("/stamp/my_search",{method: :get}) do %>
+<%=select_tag "month", options_for_select([["1月", "01"],["2月","02"],["3月","03"],["4月","04"],["5月", "05"],["6月","06"],["7月","07"],["8月","08"],["9月", "09"],["10月","10"],["11月","11"],["12月","12"]], :selected=> @month) ,class: "select" %>
+<%=submit_tag("表示", class: "btn") %>
+<% end %>
+<table>
+<tr>
+<th style="width:10%;">　月日　</th>
+<th style="width:10%;">　始業時刻　</th>
+<th style="width:10%;">休憩開始時刻</th>
+<th style="width:10%;">業務再開時刻</th>
+<th style="width:10%;">　終業時刻　</th>
+<th>　メモ　</th>
+<th style="width:10%;">編集</th>
+</tr>
+<% @stamps.each do |stamp|%>
+
+<tr>
+<td><%=stamp.date.year%>年<%=stamp.date.month%>月<%=stamp.date.day%>日</td>
+<% if stamp.start == nil %>
+  <td><%=link_to("未","/stamp/#{stamp.id}/start")%></td>
+<%else%>
+  <td><%=link_to(stamp.start.strftime("%H:%M"),"/stamp/#{stamp.id}/start") %></td>
+<%end%>
+
+<% if stamp.am_finish == nil %>
+  <td><%=link_to("未","/stamp/#{stamp.id}/am_finish")%></td>
+<%else%>
+  <td><%=link_to(stamp.am_finish.strftime("%H:%M"),"/stamp/#{stamp.id}/am_finish")%></td>
+<%end%>
+
+<% if stamp.pm_start == nil %>
+  <td><%=link_to("未","/stamp/#{stamp.id}/pm_start")%></td>
+<%else%>
+  <td><%=link_to(stamp.pm_start.strftime("%H:%M"),"/stamp/#{stamp.id}/pm_start")%></td>
+<%end%>
+
+<% if stamp.finish == nil %>
+  <td><%=link_to("未","/stamp/#{stamp.id}/finish")%></td>
+<%else%>
+  <td><%=link_to(stamp.finish.strftime("%H:%M"),"/stamp/#{stamp.id}/finish")%></td>
+<%end%>
+
+<% if stamp.memo == nil %>
+  <td></td>
+<%else%>
+  <td><%=stamp.memo %></td>
+<%end%>
+
+<td><%=link_to("削除","/stamp/#{stamp.id}/destroy",{method: :post})%></td>
+</tr>
+
+<%end%>
+</table>
+</div>
+
+</div>

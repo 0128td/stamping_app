@@ -1,0 +1,27 @@
+<div class="user-form-container">
+  <a href="/top">トップへ戻る</a>
+  <h2>ユーザ情報</h2>
+
+  <div class="user-from">
+    <p>おなまえ</p>
+    <input class="input-form" type="text" name="name" value="<%=@user.name%>" disabled>
+    <p>メールアドレス</p>
+    <input class="input-form" type="email" name="email" value="<%=@user.email%>" disabled>
+    <p>パスワード</p>
+    <input class="input-form" type="password" name="password" value="****" disabled>
+
+    <div class="user-edit">
+      <% if @administrator_user %>
+        <%= link_to("/user/#{@user.id}/edit") do %>
+        <p>ユーザ情報編集</p>
+        <%end%>
+      <%else%>
+        <%= link_to("/user/#{@user.id}/edit") do %>
+        <p>ユーザ情報編集</p>
+        <%end%>
+      <%end%>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="top-message">
+    <h1>待機ＰＪ用　打刻システム</h1>
+
+
+  <% if @administrator_user %>
+    <h2>管理者モードでログイン中です</h2>
+    <h3>ユーザ情報編集、打刻集計が可能です。</h3>
+
+　<% elsif @current_user %>
+    <h2>現在ログイン中です！</h2>
+    <h3>打刻！から打刻画面に遷移します</h3>
+    <h3>業務終了する場合は、ログアウトしてください</h3>
+
+  <% else %>
+    <h2>ログインしてご利用ください！</h2>
+
+  <% end %>
+
+  </div>
+
+</div>

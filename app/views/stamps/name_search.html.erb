@@ -1,0 +1,61 @@
+<div class="aggregate-container">
+  <div class="aggregate-header">
+    <h2>個人別集計結果</h2>
+
+<%=form_tag("/stamp/day_search",{method: :get}) do %>
+  <input class="aggregate-input" type="date" name="date" value="<%=@date%>">
+  <%=submit_tag("日別検索", class: "btn") %>
+<%end%>
+
+<%=form_tag("/stamp/name_search",{method: :get}) do %>
+    <input class="aggregate-input" type="text" name="name" value="<%=@name%>">
+    <input class="aggregate-input date-search" type="date" name="date_from" value="<%=@date_from%>">
+    <input class="aggregate-input date-search" type="date" name="date_to" value="<%=@date_to%>">
+    <%=submit_tag("検索", class: "btn") %>
+    <button class="btn" type="button" id="form_reset">期間リセット</button>
+<%end%>
+</div>
+
+<div class="aggregate-table">
+<table>
+  <tr>
+    <th>　年月日　</th>
+    <th>　始業時刻　</th>
+    <th>休憩開始時刻</th>
+    <th>業務再開時刻</th>
+    <th>　終業時刻　</th>
+  </tr>
+
+  <% @stamps.each do |stamp|%>
+  <tr>
+    <td><%=stamp.date.year%>年<%=stamp.date.month%>月<%=stamp.date.day%>日</th>
+    <% if stamp.start == nil %>
+      <td>未</td>
+    <%else%>
+      <td><%=stamp.start.strftime("%H:%M")%></td>
+    <%end%>
+
+    <% if stamp.am_finish == nil %>
+      <td>未</td>
+    <%else%>
+      <td><%=stamp.start.strftime("%H:%M")%></td>
+    <%end%>
+
+    <% if stamp.pm_start == nil %>
+      <td>未</td>
+    <%else%>
+      <td><%=stamp.pm_start.strftime("%H:%M")%></td>
+    <%end%>
+
+    <% if stamp.finish == nil %>
+      <td>未</td>
+    <%else%>
+      <td><%=stamp.finish.strftime("%H:%M")%></td>
+    <%end%>
+  </tr>
+
+  <%end%>
+
+</table>
+</div>
+</div>

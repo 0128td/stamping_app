@@ -1,0 +1,29 @@
+<div class="user-form-container">
+  <a href="/user/index">戻る</a>
+  <h2>ユーザ新規登録</h2>
+
+  <div class="user-form">
+  <% @user.errors.full_messages.each do |message| %>
+  <div class="form-error">
+    <span><%= message %></span>
+  <% end %>
+  </div>
+
+  <div class="user-from">
+  <%= form_tag("/user/create") do %>
+    <p>おなまえ(必須)</p>
+    <input class="input-form" type="text" name="name" value="<%=@name %>">
+    <p>メールアドレス(必須)</p>
+    <input class="input-form" type="email" name="email" value="<%=@email %>">
+    <p>パスワード(必須)</p>
+    <input class="input-form" type="password" name="password" value="<%=@password %>"><br>
+    <input type="radio" name="administrator" value="0" id="user" checked="checked">
+    <label for="user">ユーザ</label>
+    <input type="radio" name="administrator" value="1" id="administrator">
+    <label for="administrator">管理者</label><br>
+    <input class="edit-btn" type="submit" value="登録"><br>
+  <%end%>
+
+</div>
+
+</div>

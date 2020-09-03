@@ -1,0 +1,45 @@
+<div class="user-index-container">
+
+<a href="/top">トップへ戻る</a>
+
+<div class="user-table">
+<h2>ユーザ情報一覧（管理者用）</h2>
+  <%=link_to("新規追加はこちら","/user/new") %>
+<table>
+  <tr>
+    <th>おなまえ</th>
+    <th>メールアドレス</th>
+    <th>管理者</th>
+    <th>ユーザ</th>
+    <th>登録日</th>
+    <th colspan="2"></th>
+  </tr>
+  <% @users.each do |user|%>
+    <tr>
+      <td><%=user.name%></td>
+      <td><%=user.email%></td>
+      <% if user.administrator == 1 %>
+        <td>◯</td>
+      <%else%>
+        <td></td>
+      <%end%>
+      <% if user.administrator == 0 %>
+        <td>◯</td>
+      <%else%>
+        <td></td>
+      <%end%>
+      <td><%=user.created_at.strftime('%Y年%m月%d日') %></td>
+      <td><%=link_to("編集","/user/#{user.id}/edit") %></td>
+      <td><%=link_to("削除","/user/#{user.id}/destroy", method: :post, data: {confirm: '本当に削除しますか？' }) %></td>
+    </tr>
+  <%end%>
+  <tr style="font-weight: bold; font-size:16px;">
+    <td colspan="2">合計(人)</td>
+    <td><%=User.where(administrator:"1").count %></td>
+    <td><%=User.where(administrator:"0").count %></td>
+    <td colspan="3"></td>
+  </tr>
+</table>
+</div>
+
+</div>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VC打刻システム！</title>
+    <meta charset="utf-8">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link rel="stylesheet" href="file:///C:/Users/user/stamping_app/app/assets/stylesheets/application.css">
+
+  </head>
+
+  <body>
+    <div class="container">
+
+      <% if flash[:notice] %>
+        <div class="flash">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+
+      <div class="header">
+        <div class="header-logo">
+        <%= link_to image_tag('vc_logo.jpg'),"/top" %>
+      </div>
+
+      <% if @administrator_user %>
+        <div class="header-center">
+          <%=link_to("#{@administrator_user.name}（管理者）さん","/user/#{@administrator_user.id}/show") %>
+        </div>
+        <div class="header-right">
+          <%=link_to("ユーザ情報","/user/index")%>
+          <%=link_to("打刻集計","/stamp/aggregate")%>
+          <%=link_to("ログアウト","/logout", {method: :post}) %>
+        </div>
+
+        <% elsif @current_user %>
+          <div class="header-center">
+            <%=link_to("#{@current_user.name}さん","/user/#{@current_user.id}/show") %>
+          </div>
+          <div class="header-right">
+            <%=link_to("打刻！","/index")%>
+            <%=link_to("ログアウト","/logout", {method: :post})%>
+          </div>
+
+        <% else %>
+          <div class="header-center"></div>
+          <div class="header-right">
+            <a id="login">ログイン</a>
+          </div>
+        <% end %>
+      </div>
+
+</div>
+
+  <!-- モーダル部分 -->
+  <% if @error_message %>
+    <div class="js-login-modal-wrapper" id="js-login-modal"  style="display:block">
+      <div class="js-login-modal">
+        <span id="js-login-close-modal">☓閉じる</span>
+        <div class="js-login-form">
+          <h2>ログイン</h2>
+          <%= form_tag("/login") do %>
+          <p><%=@error_message %></p>
+          <input class="login-form-control" type="email" placeholder="メールアドレス" name="email" value="<%=@email %>"><br>
+          <input class="login-form-control" type="password" placeholder="パスワード" name="password" value="<%=@password %>"><br>
+          <input id="submit-btn" type="submit" value="ログイン">
+          <%end%>
+        </div>
+    </div>
+  </div>
+
+  <% else %>
+
+  <div class="js-login-modal-wrapper" id="js-login-modal"  style="display:none">
+    <div class="js-login-modal">
+      <span id="js-login-close-modal">☓閉じる</span>
+      <div class="js-login-form">
+        <h2>ログイン</h2>
+        <%= form_tag("/login") do %>
+        <input class="login-form-control" type="email" placeholder="メールアドレス" name="email" value="<%=@email %>"><br>
+        <input class="login-form-control" type="password" placeholder="パスワード" name="password" value="<%=@password %>"><br>
+        <input id="submit-btn" type="submit" value="ログイン">
+        <%end%>
+      </div>
+   </div>
+ </div>
+ <%end%>
+
+  <!-- モーダルここまで -->
+
+<%= yield %>
+
+</body>
+</html>

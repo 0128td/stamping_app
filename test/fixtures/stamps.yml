@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  start: 2020-08-14 11:07:15
+  am_finish: 2020-08-14 11:07:15
+  pm_start: 2020-08-14 11:07:15
+  finish: 2020-08-14 11:07:15
+  date: 2020-08-14
+
+two:
+  name: MyString
+  start: 2020-08-14 11:07:15
+  am_finish: 2020-08-14 11:07:15
+  pm_start: 2020-08-14 11:07:15
+  finish: 2020-08-14 11:07:15
+  date: 2020-08-14
