@@ -17,7 +17,7 @@ class UsersController < ApplicationController
                    administrator: params[:administrator])
 
     if @user.save
-      flash[:notice] = "登録されました！"
+      flash[:notice] = I18n.t("helpers.submit.create")
       redirect_to("/user/index")
     else
       @name = params[:name]
@@ -47,10 +47,10 @@ class UsersController < ApplicationController
 
     if @user.save
       if @administrator_user
-        flash[:notice] = "ユーザ情報編集しました！"
+        flash[:notice] = I18n.t("helpers.submit.update")
         redirect_to("/user/index")
       else
-        flash[:notice] = "ユーザ情報編集しました！"
+        flash[:notice] = I18n.t("helpers.submit.update")
         redirect_to("/top")
       end
 
@@ -67,7 +67,7 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
 
     @user.destroy
-    flash[:notice] = "削除しました！"
+    flash[:notice] = I18n.t("helpers.submit.destroy")
     redirect_to("/users/index")
 
   end

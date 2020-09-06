@@ -18237,3 +18237,335 @@ Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.5ms)
 NoMethodError (undefined method `authenticate' for nil:NilClass):
   
 app/controllers/stamps_controller.rb:13:in `login'
+Started GET "/top" for ::1 at 2020-09-05 10:30:45 +0900
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by StampsController#top as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering stamps/top.html.erb within layouts/application
+  Rendered stamps/top.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 861ms (Views: 822.8ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/login" for ::1 at 2020-09-05 10:30:56 +0900
+Processing by StampsController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7qczJRds4s/hojrPhRVFG+b7xFxTtqzCb948TS/JFpHwLrZos0QMKxm0ePtgZwLezXzYrFYIN5t7X3esxsdWMA==", "email"=>"test1@com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test1@com"], ["LIMIT", 1]]
+  ↳ app/controllers/stamps_controller.rb:11
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.8ms)
+
+
+  
+NoMethodError (undefined method `authenticate' for nil:NilClass):
+  
+app/controllers/stamps_controller.rb:13:in `login'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users"."name" FROM "users" WHERE "users"."administrator" = ? AND "users"."name" NOT IN (SELECT "stamps"."name" FROM "stamps" WHERE "stamps"."date" = ?)[0m  [["administrator", 0], ["date", "2020-09-05"]]
+  ↳ tmp/stamp.rb:4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ tmp/stamp.rb:5
+  [1m[36mStamp Create (0.9ms)[0m  [1m[32mINSERT INTO "stamps" ("name", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "test1"], ["date", "2020-09-05"], ["created_at", "2020-09-05 10:32:29.599642"], ["updated_at", "2020-09-05 10:32:29.599642"]]
+  ↳ tmp/stamp.rb:5
+  [1m[35m (10.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ tmp/stamp.rb:5
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ tmp/stamp.rb:5
+  [1m[36mStamp Create (1.2ms)[0m  [1m[32mINSERT INTO "stamps" ("name", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "test3"], ["date", "2020-09-05"], ["created_at", "2020-09-05 10:32:29.613319"], ["updated_at", "2020-09-05 10:32:29.613319"]]
+  ↳ tmp/stamp.rb:5
+  [1m[35m (11.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ tmp/stamp.rb:5
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ tmp/stamp.rb:5
+  [1m[36mStamp Create (0.9ms)[0m  [1m[32mINSERT INTO "stamps" ("name", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "test4"], ["date", "2020-09-05"], ["created_at", "2020-09-05 10:32:29.628789"], ["updated_at", "2020-09-05 10:32:29.628789"]]
+  ↳ tmp/stamp.rb:5
+  [1m[35m (11.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ tmp/stamp.rb:5
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ tmp/stamp.rb:5
+  [1m[36mStamp Create (0.9ms)[0m  [1m[32mINSERT INTO "stamps" ("name", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "test5"], ["date", "2020-09-05"], ["created_at", "2020-09-05 10:32:29.643515"], ["updated_at", "2020-09-05 10:32:29.643515"]]
+  ↳ tmp/stamp.rb:5
+  [1m[35m (9.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ tmp/stamp.rb:5
+Started POST "/login" for ::1 at 2020-09-05 10:32:34 +0900
+Processing by StampsController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7qczJRds4s/hojrPhRVFG+b7xFxTtqzCb948TS/JFpHwLrZos0QMKxm0ePtgZwLezXzYrFYIN5t7X3esxsdWMA==", "email"=>"test1@com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test1@com"], ["LIMIT", 1]]
+  ↳ app/controllers/stamps_controller.rb:11
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.6ms)
+
+
+  
+NoMethodError (undefined method `authenticate' for nil:NilClass):
+  
+app/controllers/stamps_controller.rb:13:in `login'
+Started POST "/login" for ::1 at 2020-09-05 10:34:08 +0900
+Processing by StampsController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7qczJRds4s/hojrPhRVFG+b7xFxTtqzCb948TS/JFpHwLrZos0QMKxm0ePtgZwLezXzYrFYIN5t7X3esxsdWMA==", "email"=>"test1@vc", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test1@vc"], ["LIMIT", 1]]
+  ↳ app/controllers/stamps_controller.rb:11
+Redirected to http://localhost:3001/index
+Completed 302 Found in 269ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/index" for ::1 at 2020-09-05 10:34:09 +0900
+Processing by StampsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mStamp Load (0.2ms)[0m  [1m[34mSELECT  "stamps".* FROM "stamps" WHERE "stamps"."date" = ? LIMIT ?[0m  [["date", "2020-09-05"], ["LIMIT", 1]]
+  ↳ app/controllers/stamps_controller.rb:49
+  Rendering stamps/index.html.erb within layouts/application
+  [1m[36mStamp Load (0.4ms)[0m  [1m[34mSELECT "stamps".* FROM "stamps" WHERE "stamps"."name" = ? AND (date like '%2020-09%') ORDER BY "stamps"."date" DESC[0m  [["name", "test1"]]
+  ↳ app/views/stamps/index.html.erb:51
+  Rendered stamps/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 148ms (Views: 59.8ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/stamp/create_start" for ::1 at 2020-09-05 10:44:34 +0900
+Processing by StampsController#create_start as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5Mz7rjcyp9siHZM+7KvskbaCmuI0wgKNpzY15XMoYmf6RX7jkxpJP9oL0QoJ2atUnQWGEjF8mdSzt34EmiYixg=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mStamp Load (0.3ms)[0m  [1m[34mSELECT  "stamps".* FROM "stamps" WHERE "stamps"."name" = ? AND "stamps"."date" = ? LIMIT ?[0m  [["name", "test1"], ["date", "2020-09-05"], ["LIMIT", 1]]
+  ↳ app/controllers/stamps_controller.rb:126
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/stamps_controller.rb:130
+  [1m[36mStamp Update (2.4ms)[0m  [1m[33mUPDATE "stamps" SET "start" = ?, "updated_at" = ? WHERE "stamps"."id" = ?[0m  [["start", "2020-09-05 10:44:00"], ["updated_at", "2020-09-05 10:44:34.641722"], ["id", 18]]
+  ↳ app/controllers/stamps_controller.rb:130
+  [1m[35m (22.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/stamps_controller.rb:130
+Redirected to http://localhost:3001/index
+Completed 302 Found in 38ms (ActiveRecord: 26.0ms)
+
+
+Started GET "/index" for ::1 at 2020-09-05 10:44:34 +0900
+Processing by StampsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mStamp Load (0.3ms)[0m  [1m[34mSELECT  "stamps".* FROM "stamps" WHERE "stamps"."date" = ? LIMIT ?[0m  [["date", "2020-09-05"], ["LIMIT", 1]]
+  ↳ app/controllers/stamps_controller.rb:49
+  Rendering stamps/index.html.erb within layouts/application
+  [1m[36mStamp Load (0.4ms)[0m  [1m[34mSELECT "stamps".* FROM "stamps" WHERE "stamps"."name" = ? AND (date like '%2020-09%') ORDER BY "stamps"."date" DESC[0m  [["name", "test1"]]
+  ↳ app/views/stamps/index.html.erb:51
+  Rendered stamps/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 51ms (Views: 43.9ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/stamp/create_am_finish" for ::1 at 2020-09-05 10:44:36 +0900
+Processing by StampsController#create_am_finish as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fEg+GCSNRiz23EV36wRVQ9GcrMnelpIdD6Lvnrr1TPJiwbtVgKWoyA7KB0MOdhKG+huwOdsoCUQbI6R/U/sMUw=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mStamp Load (0.3ms)[0m  [1m[34mSELECT  "stamps".* FROM "stamps" WHERE "stamps"."name" = ? AND "stamps"."date" = ? LIMIT ?[0m  [["name", "test1"], ["date", "2020-09-05"], ["LIMIT", 1]]
+  ↳ app/controllers/stamps_controller.rb:144
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/stamps_controller.rb:152
+  [1m[36mStamp Update (0.9ms)[0m  [1m[33mUPDATE "stamps" SET "am_finish" = ?, "updated_at" = ? WHERE "stamps"."id" = ?[0m  [["am_finish", "2020-09-05 10:44:00"], ["updated_at", "2020-09-05 10:44:36.960285"], ["id", 18]]
+  ↳ app/controllers/stamps_controller.rb:152
+  [1m[35m (11.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/stamps_controller.rb:152
+Redirected to http://localhost:3001/index
+Completed 302 Found in 26ms (ActiveRecord: 13.1ms)
+
+
+Started GET "/index" for ::1 at 2020-09-05 10:44:36 +0900
+Processing by StampsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mStamp Load (0.3ms)[0m  [1m[34mSELECT  "stamps".* FROM "stamps" WHERE "stamps"."date" = ? LIMIT ?[0m  [["date", "2020-09-05"], ["LIMIT", 1]]
+  ↳ app/controllers/stamps_controller.rb:49
+  Rendering stamps/index.html.erb within layouts/application
+  [1m[36mStamp Load (0.3ms)[0m  [1m[34mSELECT "stamps".* FROM "stamps" WHERE "stamps"."name" = ? AND (date like '%2020-09%') ORDER BY "stamps"."date" DESC[0m  [["name", "test1"]]
+  ↳ app/views/stamps/index.html.erb:51
+  Rendered stamps/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 54ms (Views: 44.4ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/stamp/create_pm_start" for ::1 at 2020-09-05 10:44:39 +0900
+Processing by StampsController#create_pm_start as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zgQH9Mh1EulgjAzQt1I0ncWqLqLSa8Ugfx4rTtf95b/QjYK5bF38DZiaTuRSIHNY7i0yUtfVXnlrn2CvPvOlHg=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mStamp Load (0.2ms)[0m  [1m[34mSELECT  "stamps".* FROM "stamps" WHERE "stamps"."name" = ? AND "stamps"."date" = ? LIMIT ?[0m  [["name", "test1"], ["date", "2020-09-05"], ["LIMIT", 1]]
+  ↳ app/controllers/stamps_controller.rb:166
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/stamps_controller.rb:174
+  [1m[36mStamp Update (1.8ms)[0m  [1m[33mUPDATE "stamps" SET "pm_start" = ?, "updated_at" = ? WHERE "stamps"."id" = ?[0m  [["pm_start", "2020-09-05 10:44:00"], ["updated_at", "2020-09-05 10:44:39.376784"], ["id", 18]]
+  ↳ app/controllers/stamps_controller.rb:174
+  [1m[35m (9.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/stamps_controller.rb:174
+Redirected to http://localhost:3001/index
+Completed 302 Found in 22ms (ActiveRecord: 11.7ms)
+
+
+Started GET "/index" for ::1 at 2020-09-05 10:44:39 +0900
+Processing by StampsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mStamp Load (0.2ms)[0m  [1m[34mSELECT  "stamps".* FROM "stamps" WHERE "stamps"."date" = ? LIMIT ?[0m  [["date", "2020-09-05"], ["LIMIT", 1]]
+  ↳ app/controllers/stamps_controller.rb:49
+  Rendering stamps/index.html.erb within layouts/application
+  [1m[36mStamp Load (0.4ms)[0m  [1m[34mSELECT "stamps".* FROM "stamps" WHERE "stamps"."name" = ? AND (date like '%2020-09%') ORDER BY "stamps"."date" DESC[0m  [["name", "test1"]]
+  ↳ app/views/stamps/index.html.erb:51
+  Rendered stamps/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 57ms (Views: 49.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/index" for ::1 at 2020-09-05 10:45:47 +0900
+Processing by StampsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mStamp Load (0.2ms)[0m  [1m[34mSELECT  "stamps".* FROM "stamps" WHERE "stamps"."date" = ? LIMIT ?[0m  [["date", "2020-09-05"], ["LIMIT", 1]]
+  ↳ app/controllers/stamps_controller.rb:49
+  Rendering stamps/index.html.erb within layouts/application
+  [1m[36mStamp Load (0.4ms)[0m  [1m[34mSELECT "stamps".* FROM "stamps" WHERE "stamps"."name" = ? AND (date like '%2020-09%') ORDER BY "stamps"."date" DESC[0m  [["name", "test1"]]
+  ↳ app/views/stamps/index.html.erb:51
+  Rendered stamps/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 63ms (Views: 55.6ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/stamp/create_finish" for ::1 at 2020-09-05 10:45:53 +0900
+Processing by StampsController#create_finish as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7de2B42Iwu5jWuehmtyJRs88YcLtCXwI4ubL+J2EfbNATyy9BuXXkwrTnk6EigbX6VmHzzEryJ2juloC1k3ZlQ=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mStamp Load (0.4ms)[0m  [1m[34mSELECT  "stamps".* FROM "stamps" WHERE "stamps"."name" = ? AND "stamps"."date" = ? LIMIT ?[0m  [["name", "test1"], ["date", "2020-09-05"], ["LIMIT", 1]]
+  ↳ app/controllers/stamps_controller.rb:189
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/stamps_controller.rb:197
+  [1m[36mStamp Update (1.0ms)[0m  [1m[33mUPDATE "stamps" SET "finish" = ?, "updated_at" = ? WHERE "stamps"."id" = ?[0m  [["finish", "2020-09-05 10:45:00"], ["updated_at", "2020-09-05 10:45:53.958363"], ["id", 18]]
+  ↳ app/controllers/stamps_controller.rb:197
+  [1m[35m (10.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/stamps_controller.rb:197
+Redirected to http://localhost:3001/index
+Completed 302 Found in 25ms (ActiveRecord: 11.8ms)
+
+
+Started GET "/index" for ::1 at 2020-09-05 10:45:53 +0900
+Processing by StampsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mStamp Load (0.2ms)[0m  [1m[34mSELECT  "stamps".* FROM "stamps" WHERE "stamps"."date" = ? LIMIT ?[0m  [["date", "2020-09-05"], ["LIMIT", 1]]
+  ↳ app/controllers/stamps_controller.rb:49
+  Rendering stamps/index.html.erb within layouts/application
+  [1m[36mStamp Load (0.3ms)[0m  [1m[34mSELECT "stamps".* FROM "stamps" WHERE "stamps"."name" = ? AND (date like '%2020-09%') ORDER BY "stamps"."date" DESC[0m  [["name", "test1"]]
+  ↳ app/views/stamps/index.html.erb:51
+  Rendered stamps/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 52ms (Views: 44.6ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/stamp/create_am_finish" for ::1 at 2020-09-05 10:45:55 +0900
+Processing by StampsController#create_am_finish as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"43g53rrg9gfJRkdnNgS3iwamjtUQYun+HxqDy6QJ0vr98byTHsgY4zFQBVPTdvBOLSGSJRXccqcLm8gqTQeSWw=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mStamp Load (0.2ms)[0m  [1m[34mSELECT  "stamps".* FROM "stamps" WHERE "stamps"."name" = ? AND "stamps"."date" = ? LIMIT ?[0m  [["name", "test1"], ["date", "2020-09-05"], ["LIMIT", 1]]
+  ↳ app/controllers/stamps_controller.rb:144
+Redirected to http://localhost:3001/index
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/index" for ::1 at 2020-09-05 10:45:55 +0900
+Processing by StampsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mStamp Load (0.2ms)[0m  [1m[34mSELECT  "stamps".* FROM "stamps" WHERE "stamps"."date" = ? LIMIT ?[0m  [["date", "2020-09-05"], ["LIMIT", 1]]
+  ↳ app/controllers/stamps_controller.rb:49
+  Rendering stamps/index.html.erb within layouts/application
+  [1m[36mStamp Load (0.3ms)[0m  [1m[34mSELECT "stamps".* FROM "stamps" WHERE "stamps"."name" = ? AND (date like '%2020-09%') ORDER BY "stamps"."date" DESC[0m  [["name", "test1"]]
+  ↳ app/views/stamps/index.html.erb:51
+  Rendered stamps/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 50ms (Views: 42.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/stamp/18/pm_start" for ::1 at 2020-09-05 10:45:57 +0900
+Processing by StampsController#pm_start as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mStamp Load (0.3ms)[0m  [1m[34mSELECT  "stamps".* FROM "stamps" WHERE "stamps"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/stamps_controller.rb:327
+  Rendering stamps/pm_start.html.erb within layouts/application
+  Rendered stamps/pm_start.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 56ms (Views: 40.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/stamp/18/update_pm_start" for ::1 at 2020-09-05 10:46:07 +0900
+Processing by StampsController#update_pm_start as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"paKQodWhc6LMWRgax1liSlGwqlACM7kEMYU0bTpCk4bebDLEmGpkCMNigIk6/dkeAzGLeZX/U9puCjZAaVj3kQ==", "pm_start"=>"12:49", "id"=>"18"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mStamp Load (0.2ms)[0m  [1m[34mSELECT  "stamps".* FROM "stamps" WHERE "stamps"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/stamps_controller.rb:333
+  Rendering stamps/pm_start.html.erb within layouts/application
+  Rendered stamps/pm_start.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 52ms (Views: 45.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/stamp/18/update_pm_start" for ::1 at 2020-09-05 10:46:18 +0900
+Processing by StampsController#update_pm_start as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jydxjpZlP2KQLTWa2NxH0HHivlLjdUqACKWP8epeF2WRrvTDMk3Rhmg7d649rgAVWmWioubL0dkcJMQQA1BXxA==", "pm_start"=>"08:48", "id"=>"18"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mStamp Load (0.2ms)[0m  [1m[34mSELECT  "stamps".* FROM "stamps" WHERE "stamps"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/stamps_controller.rb:333
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/stamps_controller.rb:346
+  [1m[36mStamp Update (8.9ms)[0m  [1m[33mUPDATE "stamps" SET "pm_start" = ?, "updated_at" = ? WHERE "stamps"."id" = ?[0m  [["pm_start", "2020-09-05 08:48:00"], ["updated_at", "2020-09-05 10:46:18.270842"], ["id", 18]]
+  ↳ app/controllers/stamps_controller.rb:346
+  [1m[35m (33.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/stamps_controller.rb:346
+Redirected to http://localhost:3001/index
+Completed 302 Found in 56ms (ActiveRecord: 42.9ms)
+
+
+Started GET "/index" for ::1 at 2020-09-05 10:46:18 +0900
+Processing by StampsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mStamp Load (0.2ms)[0m  [1m[34mSELECT  "stamps".* FROM "stamps" WHERE "stamps"."date" = ? LIMIT ?[0m  [["date", "2020-09-05"], ["LIMIT", 1]]
+  ↳ app/controllers/stamps_controller.rb:49
+  Rendering stamps/index.html.erb within layouts/application
+  [1m[36mStamp Load (0.3ms)[0m  [1m[34mSELECT "stamps".* FROM "stamps" WHERE "stamps"."name" = ? AND (date like '%2020-09%') ORDER BY "stamps"."date" DESC[0m  [["name", "test1"]]
+  ↳ app/views/stamps/index.html.erb:51
+  Rendered stamps/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 67ms (Views: 59.2ms | ActiveRecord: 0.7ms)
+
+

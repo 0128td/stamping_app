@@ -13,12 +13,12 @@ require 'csv'
       if @user.authenticate(params[:password])
         if @user.administrator == 0
           session[:user_id] = @user.id
-          flash[:notice] = "ログインしました"
+          flash[:notice] = I18n.t("helpers.submit.login")
           redirect_to("/index")
 
         elsif @user.administrator == 1
           session[:user_id] = @user.id
-          flash[:notice] = "ログインしました"
+          flash[:notice] = I18n.t("helpers.submit.login")
           redirect_to("/top")
         end
 
@@ -34,7 +34,7 @@ require 'csv'
 
   def logout
     session[:user_id] = nil
-    flash[:notice] = "ログアウトしました。お疲れさまでした！"
+    flash[:notice] = I18n.t("helpers.submit.logout")
     redirect_to("/top")
 
   end
@@ -128,10 +128,10 @@ require 'csv'
 
     if @stamp.start == nil
         @stamp.update(start: @time)
-        flash[:notice] = "登録しました"
+        flash[:notice] = I18n.t("helpers.submit.create")
         redirect_to("/index")
     else
-      flash[:notice] = "既に登録済です。修正する場合は、該当時刻欄をクリックしてください。"
+      flash[:notice] = I18n.t("errors.messages.taken")
       redirect_to("/index")
 
     end
@@ -145,16 +145,16 @@ require 'csv'
     @time = Time.now.to_s
 
     if @stamp.start  == nil
-      flash[:notice] = "業務開始されていません"
+      flash[:notice] = I18n.t("errors.messages.no_start")
       redirect_to("/index")
 
     elsif @stamp.am_finish == nil
       @stamp.update(am_finish: @time)
-      flash[:notice] = "登録しました"
+      flash[:notice] = I18n.t("helpers.submit.create")
       redirect_to("/index")
 
     else @stamp.am_finish != nil
-      flash[:notice] = "既に登録済です。修正する場合は、該当時刻欄をクリックしてください。"
+      flash[:notice] = I18n.t("errors.messages.taken")
       redirect_to("/index")
 
     end
@@ -167,16 +167,16 @@ require 'csv'
     @time = Time.now.to_s
 
     if @stamp.start  == nil
-      flash[:notice] = "業務開始されていません"
+      flash[:notice] = I18n.t("errors.messages.no_start")
       redirect_to("/index")
 
     elsif @stamp.pm_start == nil
       @stamp.update(pm_start: @time)
-      flash[:notice] = "登録しました"
+      flash[:notice] = I18n.t("helpers.submit.create")
       redirect_to("/index")
 
     else @stamp.pm_start != nil
-      flash[:notice] = "既に登録済です。修正する場合は、該当時刻欄をクリックしてください。"
+      flash[:notice] = I18n.t("errors.messages.taken")
       redirect_to("/index")
 
     end
@@ -190,16 +190,16 @@ require 'csv'
     @time = Time.now.to_s
 
     if @stamp.start  == nil
-      flash[:notice] = "業務開始されていません"
+      flash[:notice] = I18n.t("errors.messages.no_start")
       redirect_to("/index")
 
     elsif @stamp.finish == nil
       @stamp.update(finish: @time)
-      flash[:notice] = "登録しました"
+      flash[:notice] = I18n.t("helpers.submit.create")
       redirect_to("/index")
 
     else @stamp.finish != nil
-      flash[:notice] = "既に登録済です。修正する場合は、該当時刻欄をクリックしてください。"
+      flash[:notice] = I18n.t("errors.messages.taken")
       redirect_to("/index")
 
     end
@@ -214,11 +214,11 @@ require 'csv'
 
     if params[:memo]
       @stamp.update(memo: params[:memo])
-      flash[:notice] = "メモを保存しました"
+      flash[:notice] = I18n.t("helpers.submit.create")
       redirect_to("/index")
 
     else
-      flash.now[:notice] = "登録されていません"
+      flash.now[:notice] = I18n.t("errors.messages.no_entry")
       render("stamps/index")
 
     end
@@ -230,7 +230,7 @@ require 'csv'
     @stamp = Stamp.find_by(id: params[:id])
 
     if @stamp.destroy
-      flash[:notice] = "削除しました！"
+      flash[:notice] = I18n.t("helpers.submit.destroy")
       redirect_to("/index")
 
     end
@@ -263,19 +263,19 @@ require 'csv'
        @stamp.update(
         start: @p_start
       )
-      flash[:notice] = "修正しました"
+      flash[:notice] = I18n.t("helpers.submit.update")
       redirect_to("/index")
 
     elsif params[:start] == ""
       @stamp.update(
         start:nil
       )
-      flash[:notice] = "修正しました"
+      flash[:notice] = I18n.t("helpers.submit.update")
       redirect_to("/index")
 
 
     else
-      flash[:notice] = "未来時間は設定できません！（ズルはいけません！）"
+      flash[:notice] = I18n.t("errors.messages.future_time")
       render("stamps/start")
 
     end
@@ -305,18 +305,18 @@ require 'csv'
        @stamp.update(
         am_finish: @p_am_finish
       )
-      flash[:notice] = "修正しました"
+      flash[:notice] = I18n.t("helpers.submit.update")
       redirect_to("/index")
 
     elsif params[:am_finish] == ""
       @stamp.update(
         am_finish:nil
       )
-      flash[:notice] = "修正しました"
+      flash[:notice] = I18n.t("helpers.submit.update")
       redirect_to("/index")
 
     else
-      flash[:notice] = "未来時間は設定できません！（ズルはいけません！）"
+      flash[:notice] = I18n.t("errors.messages.future_time")
       render("stamps/am_finish")
 
     end
@@ -346,18 +346,18 @@ require 'csv'
       @stamp.update(
         pm_start:@p_pm_start
       )
-      flash[:notice] = "修正しました"
+      flash[:notice] = I18n.t("helpers.submit.update")
       redirect_to("/index")
 
     elsif params[:pm_start] == ""
       @stamp.update(
         pm_start:nil
       )
-      flash[:notice] = "修正しました"
+      flash[:notice] = I18n.t("helpers.submit.update")
       redirect_to("/index")
 
     else
-      flash[:notice] = "未来時間は設定できません！（ズルはいけません！）"
+      flash[:notice] = I18n.t("errors.messages.future_time")
       render("stamps/pm_start")
 
     end
@@ -387,18 +387,18 @@ require 'csv'
       @stamp.update(
         finish:@p_finish
       )
-      flash[:notice] = "修正しました"
+      flash[:notice] = I18n.t("helpers.submit.update")
       redirect_to("/index")
 
     elsif params[:finish] == ""
       @stamp.update(
         finish:nil
       )
-      flash[:notice] = "修正しました"
+      flash[:notice] = I18n.t("helpers.submit.update")
       redirect_to("/index")
 
     else
-      flash[:notice] = "未来時間は設定できません！（ズルはいけません！）"
+      flash[:notice] = I18n.t("errors.messages.future_time")
       render("stamps/finish")
 
     end
