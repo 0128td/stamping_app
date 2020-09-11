@@ -1,0 +1,8 @@
+# db フォルダ無視
+db/
+
+# config フォルダ無視
+config/
+
+# Gemfile 除外
+Gemfile
